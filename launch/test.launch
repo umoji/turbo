@@ -1,0 +1,17 @@
+<launch>
+  <include file="$(find roseus_tutorials)/launch/usb-camera.launch" />
+  <node pkg="turbo" type="voice-subscriber.l" name="voice_detect"></node>
+  <node pkg="turbo" type="speak_robot.py" name="speak_robot"></node>
+  <node pkg="turbo" type="test_detect_face.py" name="detect_face"></node>
+  <node pkg="turbo" type="test_pro_demo.py" name="pro_test"></node>
+  <node pkg="turbo" type="test_take_photo.py" name="take_photo"></node>
+  <node pkg="turbo" type="catch-drink.l" name="catch_drink"></node>
+  <node pkg="turbo" type="dance_robot.py" name="dance_robot"></node>
+  <arg name="launch_roswww" default="true" />
+  <group if="$(arg launch_roswww)">
+    <node pkg="roswww" type="webserver.py" name="roswww"></node>
+  </group>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+    <arg name="port" value="8888" />
+  </include>
+</launch>

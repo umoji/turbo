@@ -1,0 +1,10 @@
+<launch>
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch"></include>
+  <include file="$(find turtlebot_bringup)/launch/3dsensor.launch"></include>
+  <include file="$(find dynamixel_7dof_arm)/launch/dynamixel_7dof_arm_bringup.launch"></include>
+  <node pkg="turbo" type="speak_robot.py" name="speak_robot"></node>
+  <node pkg="turbo" type="detect_face.py" name="detect_face"></node>
+  <node pkg="turbo" type="pro_demo.py" name="pro_demo"></node>
+  <node pkg="turbo" type="take_photo.py" name="take_photo"></node>
+  <node pkg="turbo" type="catch-drink.l" name="catch_drink"></node>
+</launch>
